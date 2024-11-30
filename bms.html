@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropSky BMS Architecture Documentation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.3/mermaid.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #3B82F6;
+            --secondary-color: #10B981;
+            --background-color: #F8FAFC;
+            --text-color: #1F2937;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 800;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 1rem auto;
+        }
+
+        .section {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            padding: 2rem;
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .subsection {
+            margin: 2rem 0;
+        }
+
+        .subsection h3 {
+            color: var(--secondary-color);
+        }
+
+        .mermaid {
+            margin: 2rem 0;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .technical-specs {
+            background: #F1F5F9;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        .technical-specs ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .navigation {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .navigation ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .navigation a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .navigation a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navigation">
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#data-collection">Data Collection</a></li>
+            <li><a href="#processing">Processing & Intelligence</a></li>
+            <li><a href="#output">Output & Action</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h1>CropSky BMS Architecture Documentation</h1>
+        <p>Comprehensive documentation of our AI-Powered Battery Management System architecture and components</p>
+    </header>
+
+    <div class="container">
+        <section id="overview" class="section">
+            <h2>System Overview</h2>
+            <p>The CropSky Battery Management System (BMS) is an advanced solution that integrates AI and machine learning to optimize drone battery performance and reliability. The system is divided into three main layers:</p>
+            
+            <div class="mermaid">
+                flowchart TD
+                    A[CropSky BMS System] --> B[1. Data Collection Layer]
+                    A --> C[2. Processing & Intelligence Layer]
+                    A --> D[3. Output & Action Layer]
+                    
+                    B --> B1[Sensor Array & Battery Configuration]
+                    C --> C1[Edge Computing & AI Models]
+                    D --> D1[Safety Controls & User Interface]
+            </div>
+        </section>
+
+        <section id="data-collection" class="section">
+            <h2>1. Data Collection Layer</h2>
+            <p>The data collection layer forms the foundation of our BMS, gathering crucial information about battery status and performance.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Voltage Monitoring</h4>
+                    <div class="technical-specs">
+                        <ul>
+                            <li>Operating Range: 2.5V-4.2V per cell</li>
+                            <li>Sampling Rate: 10Hz</li>
+                            <li>Resolution: ±0.01V</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h4>Current Measurement</h4>
+                    <div class="technical-specs">
+                        <ul>
+                            <li>Range: ±100A</li>
+                            <li>Resolution: 0.1A</li>
+                            <li>Sampling Rate: 50Hz</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h4>Temperature Sensing</h4>
+                    <div class="technical-specs">
+                        <ul>
+                            <li>Range: -20°C to +60°C</li>
+                            <li>Accuracy: ±0.5°C</li>
+                            <li>Multiple sensor points</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mermaid">
+                flowchart TD
+                    subgraph "Data Collection Layer"
+                        A[Data Collection System] --> B[Sensor Array]
+                        A --> C[Battery Configuration]
+                        A --> D[Data Preprocessing]
+                        
+                        B --> B1[Voltage Sensors]
+                        B --> B2[Current Sensors]
+                        B --> B3[Temperature Sensors]
+                        
+                        C --> C1[Cell Specifications]
+                        C --> C2[Pack Architecture]
+                        
+                        D --> D1[Signal Filtering]
+                        D --> D2[Noise Reduction]
+                    end
+            </div>
+        </section>
+
+        <section id="processing" class="section">
+            <h2>2. Processing & Intelligence Layer</h2>
+            <p>The processing layer implements advanced AI and machine learning models to analyze battery data and make intelligent decisions.</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Edge Computing</h4>
+                    <div class="technical-specs">
+                        <ul>
+                            <li>32-bit ARM Processor</li>
+                            <li>RTOS Implementation</li>
+                            <li>256KB RAM Buffer</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h4>Health Prediction</h4>
+                    <div class="technical-specs">
+                        <ul>
+                            <li>Gradient Boosting Model</li>
+                            <li>95% prediction accuracy</li>
+                            <li>Real-time degradation analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h4>Charge Estimation</h4>
+                    <div class="technical-specs">
+                        <ul>
+                            <li>AI-powered load forecasting</li>
+                            <li>Predictive charge-discharge cycles</li>
+                            <li>Battery optimization algorithms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mermaid">
+                flowchart TD
+                    subgraph "Processing & Intelligence Layer"
+                        A[Processing Unit] --> B[Edge Computing]
+                        A --> C[AI/ML Models]
+                        A --> D[Data Analysis]
+                        
+                        B --> B1[Processor Selection]
+                        C --> C1[Health Prediction Model]
+                        C --> C2[Charge Estimation Model]
+                        D --> D1[Battery Diagnostics]
+                    end
+            </div>
+        </section>
+
+        <section id="output" class="section">
+            <h2>3. Output & Action Layer</h2>
+            <p>The final layer of the BMS system determines appropriate actions and communicates results to the user interface for visual monitoring and control.</p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Battery Management Controls</h4>
+                    <div class="technical-specs">
+                        <ul>
+                            <li>Real-time alerts and notifications</li>
+                            <li>Dynamic battery balancing</li>
+                            <li>Autonomous charge-discharge cycles</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <h4>User Interface</h4>
+                    <div class="technical-specs">
+                        <ul>
+                            <li>Mobile & Web Application</li>
+                            <li>Battery health dashboard</li>
+                            <li>Historical data tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mermaid">
+                flowchart TD
+                    subgraph "Output & Action Layer"
+                        A[Control System] --> B[Battery Management]
+                        A --> C[User Interface]
+                        
+                        B --> B1[Battery Balancing]
+                        B --> B2[Charge/Discharge Control]
+                        
+                        C --> C1[Real-Time Dashboard]
+                        C --> C2[User Alerts]
+                    end
+            </div>
+        </section>
+    </div>
+</body>
+</html>
